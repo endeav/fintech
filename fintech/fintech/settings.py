@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'fintech.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.postgresql',
         'NAME': 'fintech',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'USER': os.environ['DATABASE_USER'] or 'postgres',
+        'PASSWORD': os.environ['DATABASE_PASSWORD'] or '',
+        'HOST': os.environ['DATABASE_HOST'] or '127.0.0.1',
         'PORT': '5432',
     }
 }
